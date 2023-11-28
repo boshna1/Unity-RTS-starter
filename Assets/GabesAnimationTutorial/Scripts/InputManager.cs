@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 
 public static class InputManager
 {
@@ -56,6 +57,7 @@ public static class InputManager
         Inputs.InGame.CameraMovement.canceled += _ => _commander.SetMoveDirection(Vector2.zero);
         Inputs.InGame.CameraRotate.performed += ctx =>_commander.SetRotationDirection(ctx.ReadValue<float>());
         Inputs.InGame.CameraZoom.performed += ctx => HandleCameraLerp(ctx.ReadValue<float>());
+        
 
         //Set UI inputs
         Inputs.UI.ExitUI.performed += _ => SetGameMode();
